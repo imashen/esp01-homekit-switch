@@ -42,6 +42,11 @@ https://github.com/LeeLulin/esp-homekit-direct<br>
     esptool.py -p [端口] -b 115200 write_flash -fs 1MB -fm dout -ff 40m 0x0 rboot.bin 0x1000 blank_config.bin 0x2000 switch.bin
 
 ### 连接HomeKit
+
+#### 扫码连接
+![switchcode](https://cdn.jsdelivr.net/gh/TaylorLottner/esp01-homekit-switch@main/qrcode.svg)
+
+#### 手动输入
 1.手机wifi搜索并连接名称为 `AshenSwitch-XXXXXXX` 的热点，配置wifi信息<br>
 
 2.打开 `家庭` App<br>
