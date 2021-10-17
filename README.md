@@ -1,8 +1,10 @@
 # esp-homekit-direct
+## 此项目修改于https://github.com/LeeLulin/esp-homekit-direct<br>
+## 在此表示我的敬意<br>
 
-原生Homekit-Esp01/01s继电器固件
+# 原生Homekit-Esp01/01s继电器固件
 
-首先感谢三位作者<br>
+再次感谢三位作者<br>
 https://github.com/RavenSystem/esp-homekit-devices<br>
 https://github.com/Gruppio/Sonoff-Homekit<br>
 https://github.com/LeeLulin/esp-homekit-direct<br>
@@ -17,7 +19,7 @@ https://github.com/LeeLulin/esp-homekit-direct<br>
 
 ### 编译固件
 
-    cd esp-homekit-direct
+    cd esp01-homekit-switch
 
     make -C devices/switch all
 
