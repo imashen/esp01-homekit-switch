@@ -1,8 +1,6 @@
-# esp-homekit-direct
-## 此项目修改于https://github.com/LeeLulin/esp-homekit-direct<br>
-## 在此表示我的敬意<br>
-
-# 原生Homekit-Esp01/01s继电器固件
+# ESP01-Homekit-Switch
+# 原生直连Homekit-ESP01/01s继电器固件
+#### 此项目源于https://github.com/LeeLulin/esp-homekit-direct修改<br>
 
 再次感谢三位作者<br>
 https://github.com/RavenSystem/esp-homekit-devices<br>
