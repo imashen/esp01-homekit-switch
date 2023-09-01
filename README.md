@@ -1,27 +1,30 @@
 # ESP01-Homekit-Switch
 # 原生直连Homekit-ESP01/01s继电器固件
-#### 此项目源于https://github.com/LeeLulin/esp-homekit-direct修改<br>
 
-再次感谢三位作者<br>
-https://github.com/RavenSystem/esp-homekit-devices<br>
-https://github.com/Gruppio/Sonoff-Homekit<br>
-https://github.com/LeeLulin/esp-homekit-direct<br>
 
 
 ## 使用说明
 ### 下载
     git clone https://github.com/TaylorLottner/esp01-homekit-switch.git
-注意：使用之前需要先配置好 [esp-open-sdk](https://github.com/pfalcon/esp-open-sdk) 的编译环境<br>
+
 参考：
 本项目示例型号为 `esp8266-01s`，如果使用其他型号，需要修改 `/devices/switch/main.c` 文件中的引脚定义
+注意：使用之前需要先配置好 [esp-open-sdk](https://github.com/pfalcon/esp-open-sdk) 的编译环境<br>
 
 ### 编译固件
+可使用docker进行固件编译<br>
 
-    cd esp01-homekit-switch
-
-    make -C devices/switch all
-
+启动一个新的容器并指定名称为esp： docker run -it --name esp jedie/esp-open-sdk:latest
+将文件移动到容器中docker cp 主机目录 esp:容器目录
+如docker cp /opt/esp01-homekit-switch esp:/opt/将opt文件夹中的该项目文件复制到esp容器中的opt目录
+随后进入容器docker exec -it esp /bin/bash
+cd移动到放置项目的文件夹中
+如：cd esp01-homekit-switch
+随后make -C devices/switch all
 编译完成会在 `/devices/switch/firmware` 目录下生成 `switch.bin` 文件
+
+
+
 
 ### 刷写固件
 #### Windows
@@ -56,3 +59,5 @@ https://github.com/LeeLulin/esp-homekit-direct<br>
 选择配件<br>
 
 输入代码 `52101314` 等待连接完成
+
+#### 此项目源于https://github.com/LeeLulin/esp-homekit-direct修改<br>
