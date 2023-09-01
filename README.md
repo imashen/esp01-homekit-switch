@@ -14,7 +14,7 @@
 ### 编译固件
 可使用docker进行固件编译<br>
 
-启动一个新的容器并指定名称为esp `docker run -it --name esp jedie/esp-open-sdk:latest` <br>
+启动一个新的容器并指定名称为esp `docker run -itd --name esp larsks/esp-open-sdk:latest /bin/bash` <br>
 将文件移动到容器中  `docker cp 主机目录 esp:容器目录` <br>
 随后进入容器 `docker exec -it esp /bin/bash` <br>
 cd移动到放置项目的文件夹中<br>
