@@ -81,19 +81,19 @@ void reset_configuration_task() {
     //Flash the LED first before we start the reset
     led_blink(3);
     
-    printf("Resetting HomeKit Config\n");
+    printf("重置 HomeKit 配置\n");
     
     homekit_server_reset();
     
     vTaskDelay(1000 / portTICK_PERIOD_MS);
 
-    printf("Resetting Wifi Config\n");
+    printf("重置无线网络配置\n");
     
     wifi_config_reset();
     
     vTaskDelay(1000 / portTICK_PERIOD_MS);
     
-    printf("Restarting\n");
+    printf("重新启动\n");
     
     sdk_system_restart();
     
@@ -101,7 +101,7 @@ void reset_configuration_task() {
 }
 
 void reset_configuration() {
-    printf("Resetting configuration\n");
+    printf("重置配置\n");
     xTaskCreate(reset_configuration_task, "Reset configuration", 256, NULL, 2, NULL);
 }
 
@@ -116,14 +116,14 @@ void gpio_init() {
 }
 
 void set_relay_value(bool value) {
-    printf("Relay Value: %d\n", value);
+    printf("继电器值: %d\n", value);
     switch_on.value.bool_value = value;
     relay_write(value);
     homekit_characteristic_notify(&switch_on, switch_on.value);
 }
 
 void toggle_relay_value() {
-    printf("Toggling relay\n");
+    printf("切换继电器状态\n");
     set_relay_value(!switch_on.value.bool_value);
 }
 
@@ -140,7 +140,7 @@ void button_callback(uint8_t gpio, button_event_t event) {
             reset_configuration();
             break;
         default:
-            printf("Unknown button event: %d\n", event);
+            printf("未知按钮事件: %d\n", event);
     }
 }
 
@@ -153,7 +153,7 @@ void switch_identify_task(void *_args) {
 }
 
 void switch_identify(homekit_value_t _value) {
-    printf("Switch identify\n");
+    printf("标识\n");
     xTaskCreate(switch_identify_task, "Switch identify", 128, NULL, 2, NULL);
 }
 
@@ -162,7 +162,7 @@ void wifi_connection_watchdog_task(void *_args) {
 
     if (is_connected_to_wifi == false) {
         led_blink(3);
-        printf("No Wifi Connection, Restarting\n");
+        printf("无 Wi-Fi 连接，正在重新启动\n");
         sdk_system_restart();
     }
     
@@ -170,7 +170,7 @@ void wifi_connection_watchdog_task(void *_args) {
 }
 
 void create_wifi_connection_watchdog() {
-    printf("Wifi connection watchdog\n");
+    printf("Wi-Fi 连接守护程序\n");
     xTaskCreate(wifi_connection_watchdog_task, "Wifi Connection Watchdog", 128, NULL, 3, NULL);
 }
 
@@ -180,9 +180,9 @@ homekit_accessory_t *accessories[] = {
     HOMEKIT_ACCESSORY(.id=1, .category=homekit_accessory_category_switch, .services=(homekit_service_t*[]){
         HOMEKIT_SERVICE(ACCESSORY_INFORMATION, .characteristics=(homekit_characteristic_t*[]){
             &name,
-            HOMEKIT_CHARACTERISTIC(MANUFACTURER, "Ashen"),
+            HOMEKIT_CHARACTERISTIC(MANUFACTURER, "CUSKOO"),
             HOMEKIT_CHARACTERISTIC(SERIAL_NUMBER, "037A2BABF19D"),
-            HOMEKIT_CHARACTERISTIC(MODEL, "Full version"),
+            HOMEKIT_CHARACTERISTIC(MODEL, "One"),
             HOMEKIT_CHARACTERISTIC(FIRMWARE_REVISION, "1.0.0"),
             HOMEKIT_CHARACTERISTIC(IDENTIFY, switch_identify),
             NULL
@@ -278,10 +278,10 @@ void create_accessory_name() {
     uint8_t macaddr[6];
     sdk_wifi_get_macaddr(STATION_IF, macaddr);
     
-    int name_len = snprintf(NULL, 0, "AshenSwitch-%02X%02X%02X",
+    int name_len = snprintf(NULL, 0, "CUSKOO-%02X%02X%02X",
                             macaddr[3], macaddr[4], macaddr[5]);
     char *name_value = malloc(name_len+1);
-    snprintf(name_value, name_len+1, "AshenSwitch-%02X%02X%02X",
+    snprintf(name_value, name_len+1, "CUSKOO-%02X%02X%02X",
              macaddr[3], macaddr[4], macaddr[5]);
     
     name.value = HOMEKIT_STRING(name_value);
@@ -296,7 +296,7 @@ void user_init(void) {
     gpio_init();
 
     if (button_create(button_gpio, 0, 4000, button_callback)) {
-        printf("Failed to initialize button\n");
+        printf("初始化按钮失败\n");
     }
 
     create_wifi_connection_watchdog();

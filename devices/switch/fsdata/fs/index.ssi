@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="img/favicon96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon16.png">
-    <title>AshenSwitch</title>
+    <title>Sonoff</title>
     <style> 
     input {
         -webkit-appearance: none;
@@ -33,7 +33,7 @@
     </style>
 </head>
 <body>
-    <h1>AshenSwitch: <!--#state--></h1>
+    <h1>Sonoff: <!--#state--></h1>
     <form action="." method="get">
         <input type="submit" value="on" name="set" id="button_on" style="background: #4CAF50;"/>
     </form>
