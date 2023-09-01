@@ -36,8 +36,8 @@ cd移动到放置项目的文件夹中<br>
 
 4.清空Flash
 
-    esptool.py -p [端口] earse_flash
-    例：esptool.py -p COM4 earse_flash
+    esptool.py -p [端口] erase_flash
+    例：esptool.py -p COM3 erase_flash
 
 5.烧录固件
 
@@ -49,7 +49,7 @@ cd移动到放置项目的文件夹中<br>
 ![switchcode](https://cdn.jsdelivr.net/gh/TaylorLottner/esp01-homekit-switch@main/qrcode.svg)
 
 #### 手动输入
-1.手机wifi搜索并连接名称为 `AshenSwitch-XXXXXXX` 的热点，配置wifi信息<br>
+1.手机wifi搜索并连接名称为 `CUSKOO-XXXXXXX` 的热点，配置wifi信息<br>
 
 2.打开 `家庭` App<br>
 
