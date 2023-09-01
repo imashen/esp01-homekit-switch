@@ -14,14 +14,14 @@
 ### 编译固件
 可使用docker进行固件编译<br>
 
-启动一个新的容器并指定名称为esp： docker run -it --name esp jedie/esp-open-sdk:latest
-将文件移动到容器中docker cp 主机目录 esp:容器目录
-如docker cp /opt/esp01-homekit-switch esp:/opt/将opt文件夹中的该项目文件复制到esp容器中的opt目录
-随后进入容器docker exec -it esp /bin/bash
-cd移动到放置项目的文件夹中
-如：cd esp01-homekit-switch
-随后make -C devices/switch all
-编译完成会在 `/devices/switch/firmware` 目录下生成 `switch.bin` 文件
+启动一个新的容器并指定名称为esp： docker run -it --name esp jedie/esp-open-sdk:latest<br>
+将文件移动到容器中docker cp 主机目录 esp:容器目录<br>
+如docker cp /opt/esp01-homekit-switch esp:/opt/将opt文件夹中的该项目文件复制到esp容器中的opt目录<br>
+随后进入容器docker exec -it esp /bin/bash<br>
+cd移动到放置项目的文件夹中<br>
+如：cd esp01-homekit-switch<br>
+随后make -C devices/switch all<br>
+编译完成会在 `/devices/switch/firmware` 目录下生成 `switch.bin` 文件<br>
 
 
 
