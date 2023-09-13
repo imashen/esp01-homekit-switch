@@ -29,7 +29,7 @@ cd移动到放置项目的文件夹中<br>
 #### Windows
 1.安装python<br>
 
-2.安装esptool
+2.安装esptool(强力推荐)
 
     pip install esptool
 3.把 `/devices/switch/firmware` 目录下的三个文件：`rboot.bin` `blank_config.bin` `switch.bin` 复制到python根目录下<br>
