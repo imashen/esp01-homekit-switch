@@ -6,7 +6,7 @@
 ## 使用说明
 ### 下载
     git clone https://github.com/TaylorLottner/esp01-homekit-switch.git
-
+如果需要直接使用固件，只需要进入/devices/switch/firmware文件夹，刷入对应固件即可
 参考：
 本项目示例型号为 `esp8266-01s`，如果使用其他型号，需要修改 `/devices/switch/main.c` 文件中的引脚定义
 注意：使用之前需要先配置好 [esp-open-sdk](https://github.com/pfalcon/esp-open-sdk) 的编译环境<br>
