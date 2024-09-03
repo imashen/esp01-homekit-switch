@@ -44,27 +44,20 @@ make -C devices/switch all
    Using a Docker container can simplify the environment setup process.
 
    ```bash
-   docker run -itd --name esp larsks/esp-open-sdk:latest /bin/bash
+   docker run -itd --name esp -v /opt/esp01-homekit-switch:/opt/esp01-homekit-switch jedie/esp-open-sdk:latest /bin/bash
    ```
 
-2. **Copy Project to Container**  
-   Copy the project files into the Docker container.
-
-   ```bash
-   docker cp esp01-homekit-switch esp:/home/your_username/
-   ```
-
-3. **Enter the Container**  
+2. **Enter the Container**  
    Enter the Docker container to execute the compilation commands.
 
    ```bash
    docker exec -it esp /bin/bash
    ```
 
-4. **Compile the Project**  
+3. **Compile the Project**  
    Navigate to the root directory of the project within the container and start the compilation.
    ```bash
-   cd esp01-homekit-switch
+   cd /opt/esp01-homekit-switch
    make -C devices/switch all
    ```
 

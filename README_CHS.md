@@ -44,27 +44,20 @@ make -C devices/switch all
    使用 Docker 容器来编译可以简化环境配置的过程。
 
    ```bash
-   docker run -itd --name esp larsks/esp-open-sdk:latest /bin/bash
+   docker run -itd --name esp -v /opt/esp01-homekit-switch:/opt/esp01-homekit-switch jedie/esp-open-sdk:latest /bin/bash
    ```
 
-2. **复制项目到容器**  
-   将项目文件复制到 Docker 容器内。
-
-   ```bash
-   docker cp esp01-homekit-switch esp:/home/your_username/
-   ```
-
-3. **进入容器**  
+2. **进入容器**  
    进入 Docker 容器内部执行编译命令。
 
    ```bash
    docker exec -it esp /bin/bash
    ```
 
-4. **编译项目**  
+3. **编译项目**  
    在容器内导航到项目的根目录并开始编译。
    ```bash
-   cd esp01-homekit-switch
+   cd /opt/esp01-homekit-switch
    make -C devices/switch all
    ```
 
