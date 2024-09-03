@@ -103,10 +103,10 @@ After compilation, the switch.bin file will be generated in the /devices/switch/
 
 - **Manual Input**  
   If you cannot scan the QR code, you can manually add the device with the following steps:
-  1. Connect to the device's hotspot H.A.N-XXXXXXX.
-  2. Open the “Home” app on your iPhone.
-  3. Tap the + icon in the upper right corner and select “Add or Scan Accessory”.
-  4. Choose “I Don’t Have a Code or Cannot Scan” option.
-  5. Select the appropriate accessory and enter the pairing code 52101314.
+  1.Connect to the device's hotspot H.A.N-XXXXXXX.
+  2.Open the “Home” app on your iPhone.
+  3.Tap the + icon in the upper right corner and select “Add or Scan Accessory”.
+  4.Choose “I Don’t Have a Code or Cannot Scan” option.
+  5.Select the appropriate accessory and enter the pairing code 52101314.
 
 Special thanks to[LeeLulin/esp-homekit-direct](https://github.com/LeeLulin/esp-homekit-direct)
