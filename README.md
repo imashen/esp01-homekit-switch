@@ -1,4 +1,5 @@
 # Language
+
 - ENG [English](README.md)
 - CHS [简体中文](README_CHS.md)
 
@@ -7,23 +8,28 @@
 # Native Homekit-ESP01/01s Relay
 
 ## Overview
+
 ESP01-Homekit-Switch is an open-source project that allows you to turn an ESP8266 module (such as ESP01 or ESP8266-01S) into a smart home automation switch device that can connect to Apple Homekit.
 
 ## Quick Start
 
 ### Prerequisites
+
 - Make sure you have Git installed.
 - Install Python and the necessary library `esptool`.
 - Set up the environment for compilation, recommended to use `esp-open-sdk`.
 - If not compiling on the host machine, use `Docker`.
 
 ### Clone the Project
+
 ```bash
 git clone https://github.com/TaylorLottner/esp01-homekit-switch.git
 ```
 
 ### Compile the Firmware
+
 #### Host Machine Make Method
+
 Set up the SDK environment:  
 For details, see:[esp-open-sdk](https://github.com/pfalcon/esp-open-sdk)
 
@@ -33,20 +39,24 @@ make -C devices/switch all
 ```
 
 #### Docker Method
+
 1. **Set Up Docker Environment**  
    Using a Docker container can simplify the environment setup process.
+
    ```bash
    docker run -itd --name esp larsks/esp-open-sdk:latest /bin/bash
    ```
 
 2. **Copy Project to Container**  
    Copy the project files into the Docker container.
+
    ```bash
    docker cp esp01-homekit-switch esp:/home/your_username/
    ```
 
 3. **Enter the Container**  
    Enter the Docker container to execute the compilation commands.
+
    ```bash
    docker exec -it esp /bin/bash
    ```
@@ -61,8 +71,10 @@ make -C devices/switch all
 After compilation, the switch.bin file will be generated in the /devices/switch/firmware directory.
 
 ### Flash the Firmware
+
 1. **Install esptool**  
    If you haven't installed esptool yet, install it via pip.
+
    ```bash
    pip install esptool
    ```
@@ -72,6 +84,7 @@ After compilation, the switch.bin file will be generated in the /devices/switch/
 
 3. **Erase Flash**  
    Use esptool to clear the old firmware from the device.
+
    ```bash
    esptool.py -p [端口] erase_flash
    ```
@@ -83,6 +96,7 @@ After compilation, the switch.bin file will be generated in the /devices/switch/
    ```
 
 ### Connect to HomeKit
+
 - **Scan QR Code**  
   Connect the device to HomeKit by scanning the provided QR code.
   ![QR Code](qrcode.svg)
@@ -94,6 +108,5 @@ After compilation, the switch.bin file will be generated in the /devices/switch/
   3. Tap the + icon in the upper right corner and select “Add or Scan Accessory”.
   4. Choose “I Don’t Have a Code or Cannot Scan” option.
   5. Select the appropriate accessory and enter the pairing code 52101314.
-
 
 Special thanks to[LeeLulin/esp-homekit-direct](https://github.com/LeeLulin/esp-homekit-direct)
