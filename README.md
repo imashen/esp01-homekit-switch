@@ -79,13 +79,13 @@ After compilation, the switch.bin file will be generated in the /devices/switch/
    Use esptool to clear the old firmware from the device.
 
    ```bash
-   esptool.py -p [端口] erase_flash
+   esptool -p [端口] erase_flash
    ```
 
 4. **Flash New Firmware**  
    Use esptool to flash the new firmware onto the device.
    ```bash
-   esptool.py -p [端口] -b 115200 write_flash -fs 1MB -fm dout -ff 40m 0x0 rboot.bin 0x1000 blank_config.bin 0x2000 switch.bin
+   esptool -p [端口] -b 115200 write_flash -fs 1MB -fm dout -ff 40m 0x0 rboot.bin 0x1000 blank_config.bin 0x2000 switch.bin
    ```
 
 ### Connect to HomeKit
