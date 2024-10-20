@@ -79,13 +79,13 @@ make -C devices/switch all
    使用 esptool 清除设备上的旧固件。
 
    ```bash
-   esptool.py -p [端口] erase_flash
+   esptool -p [端口] erase_flash
    ```
 
 4. **烧录新固件**  
    使用 esptool 烧录新的固件到设备。
    ```bash
-   esptool.py -p [端口] -b 115200 write_flash -fs 1MB -fm dout -ff 40m 0x0 rboot.bin 0x1000 blank_config.bin 0x2000 switch.bin
+   esptool -p [端口] -b 115200 write_flash -fs 1MB -fm dout -ff 40m 0x0 rboot.bin 0x1000 blank_config.bin 0x2000 switch.bin
    ```
 
 ### 连接到 HomeKit
